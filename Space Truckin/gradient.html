@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sun Demo</title>
+		<link href="style.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+		<canvas id="screen" width="500" height="500"></canvas>
+		<script type="text/javascript">
+			var screen = {};
+			screen.id = document.getElementById("screen");
+			screen.canvas = screen.id.getContext("2d");
+			
+			function loop(){
+				screen.canvas.fillStyle = "black";
+				screen.canvas.fillRect(0,0,500,500);
+				var grd = screen.canvas.createRadialGradient(200,200,0,200,200,200);
+				grd.addColorStop(0,"red");
+				grd.addColorStop(1,"black");
+				screen.canvas.fillStyle = grd;
+				screen.canvas.fillRect(100,20,500,500);
+			}
+			setInterval(loop,1000/60);
+		</script>
+	</body>
+</html>
